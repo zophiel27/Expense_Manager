@@ -1,4 +1,6 @@
 {% extends "base_auth.html" %}
+{% load static %}
+
 {% block content %}
 
 <div class="container"> <!-- Start container here -->
@@ -15,6 +17,9 @@
                         <div class="form-group">
                             <label for="usernameField">Username</label>
                             <input type="text" class="form-control form-control-sm" id="usernameField" name="username" required>
+                        </div>
+                        <div class="invalid-feedback" style="display:none">
+                            <!--display none so it is empty/non-existent by default, n it will stay like that until it needs to throw an error for username-->
                         </div>
                         <div class="form-group">
                             <label for="emailField">Email</label>
@@ -34,5 +39,7 @@
         <div class="col-md-4"></div>
     </div>
 </div> <!-- End container here -->
+
+<script src="{% static 'js/register.js' %}"></script>
 
 {% endblock content %}
