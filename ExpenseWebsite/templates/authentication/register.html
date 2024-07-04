@@ -18,13 +18,18 @@
                             <label for="usernameField">Username</label>
                             <input type="text" class="form-control form-control-sm" id="usernameField" name="username" required>
                         </div>
-                        <div class="invalid-feedback" style="display:none">
+                        <div class="Username-invalid-feedback invalid-feedback" style="display:none">
                             <!--display none so it is empty/non-existent by default, n it will stay like that until it needs to throw an error for username-->
                         </div>
+                        <p class="text-sm text-success username-success-output"></p>
                         <div class="form-group">
                             <label for="emailField">Email</label>
                             <input type="email" class="form-control form-control-sm" id="emailField" name="email" required>
                         </div>
+                        <div class="Emailinvalid-feedback invalid-feedback" style="display:none">
+                            <!--display none so it is empty/non-existent by default, n it will stay like that until it needs to throw an error for email-->
+                        </div>
+                        <p class="text-sm text-success email-success-output"></p>
                         <div class="form-group">
                             <label for="passwordField">Password</label>
                             <input type="password" class="form-control form-control-sm" id="passwordField" name="password" required>
