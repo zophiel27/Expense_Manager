@@ -4,11 +4,11 @@ const emailField = document.querySelector("#emailField");
 const EmailfeedbackArea = document.querySelector(".Emailinvalid-feedback");
 const usernameSuccessOutput = document.querySelector(".username-success-output");
 const emailSuccessOutput = document.querySelector(".email-success-output");
+const submitBtn = document.querySelector(".submit-btn");
 
 // event handler to know when user types something
 usernameField.addEventListener("keyup", (e) => {
     const usernameValue = e.target.value; //what user types in
-
     usernameSuccessOutput.style.display = 'block';
     usernameSuccessOutput.textContent = `Checking ${usernameValue}`
 
@@ -25,10 +25,13 @@ usernameField.addEventListener("keyup", (e) => {
             console.log('data', data);
             usernameSuccessOutput.style.display = 'none';
             if(data.username_error) {
+                submitBtn.disabled = true;
                 usernameField.classList.add('is-invalid'); //display red border
                 feedbackArea.style.display = 'block';
                 feedbackArea.innerHTML = `<p>${data.username_error}</p>`;
                 
+            }else{
+                submitBtn.removeAttribute('disabled');
             }
         });
     }
@@ -42,7 +45,6 @@ usernameField.addEventListener("keyup", (e) => {
 
 emailField.addEventListener("keyup", (e) => {
     const emailValue = e.target.value; //what user types in
-    
     emailSuccessOutput.style.display = 'block';
     emailSuccessOutput.textContent = `Checking ${emailValue}`
     
@@ -59,10 +61,13 @@ emailField.addEventListener("keyup", (e) => {
             console.log('data', data);
             emailSuccessOutput.style.display = 'none';
             if(data.email_error) {
+                submitBtn.disabled = true;
                 emailField.classList.add('is-invalid'); //display red border
                 EmailfeedbackArea.style.display = 'block';
                 EmailfeedbackArea.innerHTML = `<p>${data.email_error}</p>`;
                 
+            }else{
+                submitBtn.removeAttribute('disabled');
             }
         });
     }
@@ -76,3 +81,5 @@ emailField.addEventListener("keyup", (e) => {
 
 
 // static files not getting refreshed: ctrl+shift+r to refresh
+
+// issue with sync in email and username (submit button)
